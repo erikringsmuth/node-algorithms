@@ -1,15 +1,15 @@
 'use strict';
 
 var assert = require('assert'),
-    main   = require('../index');
+    main   = require('../quickSort');
 
-describe('sort()', function() {
+describe('quickSort()', function() {
   it('should order the items in an array', function() {
     // arrange
     var a = [3, 7, 2020, -4, 27, 2, 4, 500];
 
     // act
-    var actual = main.sort(a);
+    var actual = main.quickSort(a);
 
     // assert
     assert.deepEqual(actual, [-4, 2, 3, 4, 7, 27, 500, 2020]);
@@ -20,7 +20,7 @@ describe('sort()', function() {
     var a = [];
 
     // act
-    var actual = main.sort(a);
+    var actual = main.quickSort(a);
 
     // assert
     assert.deepEqual(actual, []);
@@ -31,7 +31,7 @@ describe('sort()', function() {
     var a = [2];
 
     // act
-    var actual = main.sort(a);
+    var actual = main.quickSort(a);
 
     // assert
     assert.deepEqual(actual, [2]);

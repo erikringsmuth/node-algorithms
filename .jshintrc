@@ -20,6 +20,5 @@
   "smarttabs": true,
 
   // Environments
-  "node": true,
-  "browser": true
+  "node": true
 }
