@@ -12,11 +12,10 @@ function findMin(array) {
 function permutations(prefix, string, array) {
   if (string.length === 0) {
     array.push(prefix);
+    return;
   }
-  else {
-    for (var i = 0; i < string.length; i ++) {
-      permutations(prefix + string.charAt(i), string.substring(0, i) + string.substring(i + 1, string.length), array);
-    }
+  for (var i = 0; i < string.length; i ++) {
+    permutations(prefix + string.charAt(i), string.substring(0, i) + string.substring(i + 1, string.length), array);
   }
 }
 
