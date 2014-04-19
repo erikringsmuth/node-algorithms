@@ -22,9 +22,7 @@ module.exports = {
     if (array.length <= 1) {
       return array;
     }
-    var splitIndex = Math.floor(array.length / 2);
-    var arr1 = array.slice(0, splitIndex);
-    var arr2 = array.slice(splitIndex, array.length);
-    return merge(mergeSort(arr1), mergeSort(arr2));
+    var middle = Math.floor(array.length / 2);
+    return merge(mergeSort(array.slice(0, middle)), mergeSort(array.slice(middle, array.length)));
   }
 };
