@@ -1,18 +1,20 @@
 'use strict';
 
 function merge(arr1, arr2) {
-  var a = [], i1 = 0, i2 = 0;
-  while(i1 < arr1.length && i2 < arr2.length) {
-    if (arr1[i1] < arr2[i2]) {
-      a.push(arr1[i1]);
-      i1++;
+  var a = [];
+
+  // zip while there are elements in both arrays
+  while(arr1.length > 0 && arr2.length > 0) {
+    if (arr1[0] < arr2[0]) {
+      a.push(arr1.shift());
     }
     else {
-      a.push(arr2[i2]);
-      i2++;
+      a.push(arr2.shift());
     }
   }
-  return a.concat(arr1.slice(i1, arr1.length)).concat(arr2.slice(i2, arr2.length));
+
+  // then concat any items left in one of the arrays and return
+  return a.concat(arr1).concat(arr2);
 }
 
 module.exports = {
