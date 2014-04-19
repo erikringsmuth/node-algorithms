@@ -99,28 +99,23 @@ BinarySearchTree.prototype.postOrderArray = function() {
   return array;
 };
 
-function addToInProgress(node, inProgress) {
-  if (node.left !== null) {
-    inProgress.push(node.left);
-  }
-  if (node.right !== null) {
-    inProgress.push(node.right);
-  }
-}
-
 BinarySearchTree.prototype.bfsArray = function() {
-  var array = [],
-      inProgress = [];
-  if (this.root === null) {
-    return array;
+  var array = [], queue = [];
+
+  if (this.root !== null) {
+    queue.push(this.root);
   }
-  else {
-    inProgress.push(this.root);
-  }
-  while(inProgress.length > 0) {
-    var entry = inProgress.shift();
+
+  while(queue.length > 0) {
+    var entry = queue.shift();
     array.push(entry.value);
-    addToInProgress(entry, inProgress);
+
+    if (entry.left !== null) {
+      queue.push(entry.left);
+    }
+    if (entry.right !== null) {
+      queue.push(entry.right);
+    }
   }
 
   return array;
