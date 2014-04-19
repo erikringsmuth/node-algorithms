@@ -1,26 +1,18 @@
 'use strict';
 
 function merge(arr1, arr2) {
-  var a = [], arr1Index = 0, arr2Index = 0;
-  while(arr1Index < arr1.length && arr2Index < arr2.length) {
-    if (arr1[arr1Index] < arr2[arr2Index]) {
-      a.push(arr1[arr1Index]);
-      arr1Index++;
+  var a = [], i1 = 0, i2 = 0;
+  while(i1 < arr1.length && i2 < arr2.length) {
+    if (arr1[i1] < arr2[i2]) {
+      a.push(arr1[i1]);
+      i1++;
     }
     else {
-      a.push(arr2[arr2Index]);
-      arr2Index++;
+      a.push(arr2[i2]);
+      i2++;
     }
   }
-  while (arr1Index < arr1.length) {
-    a.push(arr1[arr1Index]);
-    arr1Index++;
-  }
-  while (arr2Index < arr2.length) {
-    a.push(arr2[arr2Index]);
-    arr2Index++;
-  }
-  return a;
+  return a.concat(arr1.slice(i1, arr1.length)).concat(arr2.slice(i2, arr2.length));
 }
 
 module.exports = {
