@@ -184,4 +184,26 @@ describe('BinarySearchTree', function() {
     // act, assert
     assert.throws(function() { bst.put(72); });
   });
+  
+  it('should be traversable as BFS', function() {
+    // arrange
+    var bst = new BinarySearchTree();
+    bst.put(50);
+    bst.put(17);
+    bst.put(72);
+    bst.put(12);
+    bst.put(23);
+    bst.put(54);
+    bst.put(76);
+    bst.put(9);
+    bst.put(14);
+    bst.put(19);
+    bst.put(67);
+
+    // act
+    var actual = bst.bfsArray();
+
+    // assert
+    assert.deepEqual(actual, [50, 17, 72, 12, 23, 54, 76, 9, 14, 19, 67]);
+  });
 });

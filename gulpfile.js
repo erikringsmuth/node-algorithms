@@ -12,7 +12,7 @@ var testFiles = 'test/**/*.js';
 gulp.task('test', function () {
   gulp
     .src(testFiles)
-    .pipe(mocha({ reporter: 'spec' }));
+    .pipe(mocha({ reporter: 'dot' }));
 });
 
 gulp.task('lint', function() {

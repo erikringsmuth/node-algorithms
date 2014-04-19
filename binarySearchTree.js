@@ -99,4 +99,31 @@ BinarySearchTree.prototype.postOrderArray = function() {
   return array;
 };
 
+function addToInProgress(node, inProgress) {
+  if (node.left !== null) {
+    inProgress.push(node.left);
+  }
+  if (node.right !== null) {
+    inProgress.push(node.right);
+  }
+}
+
+BinarySearchTree.prototype.bfsArray = function() {
+  var array = [],
+      inProgress = [];
+  if (this.root === null) {
+    return array;
+  }
+  else {
+    inProgress.push(this.root);
+  }
+  while(inProgress.length > 0) {
+    var entry = inProgress.shift();
+    array.push(entry.value);
+    addToInProgress(entry, inProgress);
+  }
+
+  return array;
+};
+
 module.exports = BinarySearchTree;
