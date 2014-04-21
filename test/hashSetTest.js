@@ -4,10 +4,10 @@ var assert  = require('assert'),
     HashSet = require('../hashSet');
 
 describe('HashSet', function() {
-  it('should correctly determine if the hash set has an element after seting it', function() {
+  it('should correctly determine if the hash add has an element after adding it', function() {
     // arrange
     var hashSet = new HashSet();
-    hashSet.set('hello');
+    hashSet.add('hello');
 
     // act
     var actual = hashSet.has('hello');
@@ -16,10 +16,10 @@ describe('HashSet', function() {
     assert.equal(actual, true);
   });
 
-  it('should not say the set has an item that wasn\'t set', function() {
+  it('should not say the add has an item that wasn\'t added', function() {
     // arrange
     var hashSet = new HashSet();
-    hashSet.set('hello');
+    hashSet.add('hello');
 
     // act
     var actual = hashSet.has('hello1');
@@ -31,9 +31,9 @@ describe('HashSet', function() {
   it('should be able to handle more items than the number of buckets in the hash table', function() {
     // arrange
     var hashSet = new HashSet(1);
-    hashSet.set('hello');
-    hashSet.set('hello2');
-    hashSet.set('hello3');
+    hashSet.add('hello');
+    hashSet.add('hello2');
+    hashSet.add('hello3');
 
     // act
     // assert
@@ -42,13 +42,13 @@ describe('HashSet', function() {
     assert.equal(hashSet.has('hello3'), true);
   });
 
-  it('should throw when seting the same key multiple times', function() {
+  it('should throw when adding the same key multiple times', function() {
     // arrange
     var hashSet = new HashSet();
-    hashSet.set('hello');
+    hashSet.add('hello');
 
     // act
     // assert
-    assert.throws(function() { hashSet.set('hello'); }, /exists/);
+    assert.throws(function() { hashSet.add('hello'); }, /exists/);
   });
 });

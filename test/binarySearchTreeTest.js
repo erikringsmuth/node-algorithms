@@ -23,17 +23,17 @@ describe('BinarySearchTree', function() {
   it('should be traversable in-order', function() {
     // arrange
     var bst = new BinarySearchTree();
-    bst.set(50);
-    bst.set(17);
-    bst.set(72);
-    bst.set(12);
-    bst.set(23);
-    bst.set(54);
-    bst.set(76);
-    bst.set(9);
-    bst.set(14);
-    bst.set(19);
-    bst.set(67);
+    bst.add(50);
+    bst.add(17);
+    bst.add(72);
+    bst.add(12);
+    bst.add(23);
+    bst.add(54);
+    bst.add(76);
+    bst.add(9);
+    bst.add(14);
+    bst.add(19);
+    bst.add(67);
 
     // act
     var actual = bst.inOrder();
@@ -45,17 +45,17 @@ describe('BinarySearchTree', function() {
   it('should be traversable pre-order', function() {
     // arrange
     var bst = new BinarySearchTree();
-    bst.set(50);
-    bst.set(17);
-    bst.set(72);
-    bst.set(12);
-    bst.set(23);
-    bst.set(54);
-    bst.set(76);
-    bst.set(9);
-    bst.set(14);
-    bst.set(19);
-    bst.set(67);
+    bst.add(50);
+    bst.add(17);
+    bst.add(72);
+    bst.add(12);
+    bst.add(23);
+    bst.add(54);
+    bst.add(76);
+    bst.add(9);
+    bst.add(14);
+    bst.add(19);
+    bst.add(67);
 
     // act
     var actual = bst.preOrder();
@@ -67,17 +67,17 @@ describe('BinarySearchTree', function() {
   it('should be traversable post-order', function() {
     // arrange
     var bst = new BinarySearchTree();
-    bst.set(50);
-    bst.set(17);
-    bst.set(72);
-    bst.set(12);
-    bst.set(23);
-    bst.set(54);
-    bst.set(76);
-    bst.set(9);
-    bst.set(14);
-    bst.set(19);
-    bst.set(67);
+    bst.add(50);
+    bst.add(17);
+    bst.add(72);
+    bst.add(12);
+    bst.add(23);
+    bst.add(54);
+    bst.add(76);
+    bst.add(9);
+    bst.add(14);
+    bst.add(19);
+    bst.add(67);
 
     // act
     var actual = bst.postOrder();
@@ -89,17 +89,17 @@ describe('BinarySearchTree', function() {
   it('should stay sorted (traverse in-order) no matter what order you add items', function() {
     // arrange
     var bst = new BinarySearchTree();
-    bst.set(72);
-    bst.set(76);
-    bst.set(54);
-    bst.set(19);
-    bst.set(9);
-    bst.set(23);
-    bst.set(17);
-    bst.set(67);
-    bst.set(12);
-    bst.set(14);
-    bst.set(50);
+    bst.add(72);
+    bst.add(76);
+    bst.add(54);
+    bst.add(19);
+    bst.add(9);
+    bst.add(23);
+    bst.add(17);
+    bst.add(67);
+    bst.add(12);
+    bst.add(14);
+    bst.add(50);
 
     // act
     var actual = bst.inOrder();
@@ -111,17 +111,17 @@ describe('BinarySearchTree', function() {
   it('should stay sorted (traverse in-order) no matter what order you add items again', function() {
     // arrange
     var bst = new BinarySearchTree();
-    bst.set(9);
-    bst.set(12);
-    bst.set(14);
-    bst.set(17);
-    bst.set(19);
-    bst.set(23);
-    bst.set(50);
-    bst.set(54);
-    bst.set(67);
-    bst.set(72);
-    bst.set(76);
+    bst.add(9);
+    bst.add(12);
+    bst.add(14);
+    bst.add(17);
+    bst.add(19);
+    bst.add(23);
+    bst.add(50);
+    bst.add(54);
+    bst.add(67);
+    bst.add(72);
+    bst.add(76);
 
     // act
     var actual = bst.inOrder();
@@ -133,17 +133,17 @@ describe('BinarySearchTree', function() {
   it('should be able to identify if a tree has an entry', function() {
     // arrange
     var bst = new BinarySearchTree();
-    bst.set(50);
-    bst.set(17);
-    bst.set(72);
-    bst.set(12);
-    bst.set(23);
-    bst.set(54);
-    bst.set(76);
-    bst.set(9);
-    bst.set(14);
-    bst.set(19);
-    bst.set(67);
+    bst.add(50);
+    bst.add(17);
+    bst.add(72);
+    bst.add(12);
+    bst.add(23);
+    bst.add(54);
+    bst.add(76);
+    bst.add(9);
+    bst.add(14);
+    bst.add(19);
+    bst.add(67);
 
     // act
     var actual = bst.has(67);
@@ -155,17 +155,17 @@ describe('BinarySearchTree', function() {
   it('should be able to identify if a tree does not contain an entry', function() {
     // arrange
     var bst = new BinarySearchTree();
-    bst.set(50);
-    bst.set(17);
-    bst.set(72);
-    bst.set(12);
-    bst.set(23);
-    bst.set(54);
-    bst.set(76);
-    bst.set(9);
-    bst.set(14);
-    bst.set(19);
-    bst.set(67);
+    bst.add(50);
+    bst.add(17);
+    bst.add(72);
+    bst.add(12);
+    bst.add(23);
+    bst.add(54);
+    bst.add(76);
+    bst.add(9);
+    bst.add(14);
+    bst.add(19);
+    bst.add(67);
 
     // act
     var actual = bst.has(68);
@@ -177,28 +177,28 @@ describe('BinarySearchTree', function() {
   it('should throw an error if you try to add a duplicate value', function() {
     // arrange
     var bst = new BinarySearchTree();
-    bst.set(50);
-    bst.set(17);
-    bst.set(72);
+    bst.add(50);
+    bst.add(17);
+    bst.add(72);
 
     // act, assert
-    assert.throws(function() { bst.set(72); });
+    assert.throws(function() { bst.add(72); });
   });
   
   it('should be traversable as BFS', function() {
     // arrange
     var bst = new BinarySearchTree();
-    bst.set(50);
-    bst.set(17);
-    bst.set(72);
-    bst.set(12);
-    bst.set(23);
-    bst.set(54);
-    bst.set(76);
-    bst.set(9);
-    bst.set(14);
-    bst.set(19);
-    bst.set(67);
+    bst.add(50);
+    bst.add(17);
+    bst.add(72);
+    bst.add(12);
+    bst.add(23);
+    bst.add(54);
+    bst.add(76);
+    bst.add(9);
+    bst.add(14);
+    bst.add(19);
+    bst.add(67);
 
     // act
     var actual = bst.bfs();

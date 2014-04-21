@@ -20,7 +20,7 @@ HashSet.prototype.hashCode = function hashCode(key) {
   return hashFunctions.charCodeHash3(key) % this.size;
 };
 
-HashSet.prototype.set = function set(key) {
+HashSet.prototype.add = function add(key) {
   var index = this.hashCode(key);
   var entry = this.hashSet[index];
   if (!(entry instanceof Entry)) {

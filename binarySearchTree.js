@@ -32,7 +32,7 @@ function insertInSubTree(node, value) {
   }
 }
 
-BinarySearchTree.prototype.set = function set(value) {
+BinarySearchTree.prototype.add = function add(value) {
   if (this.root === null) {
     this.root = new Entry(value);
   }
