@@ -16,7 +16,7 @@ module.exports = function bestDealInStockMarket(market) {
       deal = {
         buyIndex: buyIndex,
         sellIndex: i
-      }
+      };
       bestDeal = market[deal.sellIndex] - market[deal.buyIndex];
     }
   }
