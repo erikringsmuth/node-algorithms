@@ -20,7 +20,7 @@ HashSet.prototype.hashCode = function hashCode(key) {
   return hashFunctions.charCodeHash3(key) % this.size;
 };
 
-HashSet.prototype.add = function add(key) {
+HashSet.prototype.set = function set(key) {
   var index = this.hashCode(key);
   var entry = this.hashSet[index];
   if (!(entry instanceof Entry)) {
@@ -39,7 +39,7 @@ HashSet.prototype.add = function add(key) {
   }
 };
 
-HashSet.prototype.contains = function contains(key) {
+HashSet.prototype.has = function has(key) {
   var entry = this.hashSet[this.hashCode(key)];
   if (entry instanceof Entry) {
     while (true) {

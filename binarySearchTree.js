@@ -32,7 +32,7 @@ function insertInSubTree(node, value) {
   }
 }
 
-BinarySearchTree.prototype.put = function put(value) {
+BinarySearchTree.prototype.set = function set(value) {
   if (this.root === null) {
     this.root = new Entry(value);
   }
@@ -56,7 +56,7 @@ function subTreeContains(node, value) {
   }
 }
 
-BinarySearchTree.prototype.contains = function contains(value) {
+BinarySearchTree.prototype.has = function has(value) {
   return subTreeContains(this.root, value);
 };
 
@@ -67,7 +67,7 @@ function addTreeInOrder(node, array) {
   addTreeInOrder(node.right, array);
 }
 
-BinarySearchTree.prototype.inOrderArray = function() {
+BinarySearchTree.prototype.inOrder = function() {
   var array = [];
   addTreeInOrder(this.root, array);
   return array;
@@ -80,7 +80,7 @@ function addTreePreOrder(node, array) {
   addTreePreOrder(node.right, array);
 }
 
-BinarySearchTree.prototype.preOrderArray = function() {
+BinarySearchTree.prototype.preOrder = function() {
   var array = [];
   addTreePreOrder(this.root, array);
   return array;
@@ -93,13 +93,13 @@ function addTreePostOrder(node, array) {
   array.push(node.value);
 }
 
-BinarySearchTree.prototype.postOrderArray = function() {
+BinarySearchTree.prototype.postOrder = function() {
   var array = [];
   addTreePostOrder(this.root, array);
   return array;
 };
 
-BinarySearchTree.prototype.bfsArray = function() {
+BinarySearchTree.prototype.bfs = function() {
   var array = [], queue = [];
 
   if (this.root !== null) {
