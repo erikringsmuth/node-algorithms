@@ -16,7 +16,6 @@
     "afterEach": true
   },
   "globalstrict": true,
-  "loopfunc": true,
   "smarttabs": true,
 
   // Environments
