@@ -4,9 +4,10 @@ function BinarySearchTree() {
   this.root = null;
 }
 
-function Entry(value) {
+function Entry(value, parent) {
   this.left = null;
   this.right = null;
+  this.parent = parent || null;
   this.value = value;
 }
 
@@ -16,7 +17,7 @@ function insertInSubTree(node, value) {
   }
   else if (value < node.value) {
     if (node.left === null) {
-      node.left = new Entry(value);
+      node.left = new Entry(value, node);
     }
     else {
       insertInSubTree(node.left, value);
@@ -24,7 +25,7 @@ function insertInSubTree(node, value) {
   }
   else if (value > node.value) {
     if (node.right === null) {
-      node.right = new Entry(value);
+      node.right = new Entry(value, node);
     }
     else {
       insertInSubTree(node.right, value);
@@ -41,23 +42,27 @@ BinarySearchTree.prototype.add = function add(value) {
   }
 };
 
-function subTreeContains(node, value) {
+function getFromSubTree(node, value) {
   if (node === null) {
-    return false;
+    return null;
   }
   else if (value === node.value) {
-    return true;
+    return node;
   }
   else if (value < node.value) {
-    return subTreeContains(node.left, value);
+    return getFromSubTree(node.left, value);
   }
   else if (value > node.value) {
-    return subTreeContains(node.right, value);
+    return getFromSubTree(node.right, value);
   }
 }
 
 BinarySearchTree.prototype.has = function has(value) {
-  return subTreeContains(this.root, value);
+  return getFromSubTree(this.root, value) !== null;
+};
+
+BinarySearchTree.prototype.get = function get(value) {
+  return getFromSubTree(this.root, value);
 };
 
 function addTreeInOrder(node, array) {
@@ -119,6 +124,58 @@ BinarySearchTree.prototype.bfs = function() {
   }
 
   return array;
+};
+
+function shortestPath(start, end, parent) {
+  var path = [];
+  // add items from the left to the parent
+  while (start.value !== parent.value) {
+    path.push(start.value);
+    start = start.parent;
+  }
+  // add the parent
+  path.push(parent.value);
+  // add items from the parent to the right
+  while (true) {
+    if (parent.value === end.value) {
+      return path;
+    }
+    else if (parent.value < end.value) {
+      path.push(parent.right.value);
+      parent = parent.right;
+    }
+    else {
+      path.push(parent.left.value);
+      parent = parent.left;
+    }
+  }
+}
+
+BinarySearchTree.prototype.path = function(start, end) {
+  // Find the shortest path from start to end. Add the parents of start
+  // and end to a set until one of the parents is already in the set.
+  // This is a parent of both start and end.
+  var set = new BinarySearchTree(),
+      startNode = this.get(start),
+      endNode = this.get(end),
+      a = startNode,
+      b = endNode;
+  while (true) {
+    if (set.has(a.value)) {
+      return shortestPath(startNode, endNode, a);
+    }
+    else {
+      set.add(a.value);
+      a = a.parent;
+    }
+    if (set.has(b.value)) {
+      return shortestPath(startNode, endNode, b);
+    }
+    else {
+      set.add(b.value);
+      b = b.parent;
+    }
+  }
 };
 
 module.exports = BinarySearchTree;

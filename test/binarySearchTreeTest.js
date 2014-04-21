@@ -206,4 +206,48 @@ describe('BinarySearchTree', function() {
     // assert
     assert.deepEqual(actual, [50, 17, 72, 12, 23, 54, 76, 9, 14, 19, 67]);
   });
+  
+  it('should find the shortest path between nodes', function() {
+    // arrange
+    var bst = new BinarySearchTree();
+    bst.add(50);
+    bst.add(17);
+    bst.add(72);
+    bst.add(12);
+    bst.add(23);
+    bst.add(54);
+    bst.add(76);
+    bst.add(9);
+    bst.add(14);
+    bst.add(19);
+    bst.add(67);
+
+    // act
+    var actual = bst.path(14, 23);
+
+    // assert
+    assert.deepEqual(actual, [14, 12, 17, 23]);
+  });
+
+  it('should find the shortest path between nodes 2', function() {
+    // arrange
+    var bst = new BinarySearchTree();
+    bst.add(50);
+    bst.add(17);
+    bst.add(72);
+    bst.add(12);
+    bst.add(23);
+    bst.add(54);
+    bst.add(76);
+    bst.add(9);
+    bst.add(14);
+    bst.add(19);
+    bst.add(67);
+
+    // act
+    var actual = bst.path(19, 54);
+
+    // assert
+    assert.deepEqual(actual, [19, 23, 17, 50, 72, 54]);
+  });
 });
