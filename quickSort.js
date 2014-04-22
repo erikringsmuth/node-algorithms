@@ -32,9 +32,7 @@ function partition(array, start, end) {
   partition(array, left + 1, end);
 }
 
-module.exports = {
-  quickSort: function(array) {
-    partition(array, 0, array.length - 1);
-    return array;
-  }
+module.exports = function quickSort(array) {
+  partition(array, 0, array.length - 1);
+  return array;
 };

@@ -17,12 +17,10 @@ function merge(arr1, arr2) {
   return a.concat(arr1).concat(arr2);
 }
 
-module.exports = {
-  mergeSort: function mergeSort(array) {
-    if (array.length <= 1) {
-      return array;
-    }
-    var middle = Math.floor(array.length / 2);
-    return merge(mergeSort(array.slice(0, middle)), mergeSort(array.slice(middle, array.length)));
+module.exports = function mergeSort(array) {
+  if (array.length <= 1) {
+    return array;
   }
+  var middle = Math.floor(array.length / 2);
+  return merge(mergeSort(array.slice(0, middle)), mergeSort(array.slice(middle, array.length)));
 };
