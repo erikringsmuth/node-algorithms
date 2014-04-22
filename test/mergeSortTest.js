@@ -26,6 +26,17 @@ describe('mergeSort()', function() {
     assert.deepEqual(actual, [2, 3, 5, 14, 19, 23, 24, 35, 43]);
   });
 
+  it('should order the items in an array with duplicates', function() {
+    // arrange
+    var a = [24, 5, 3, 35, 14, 23, 19, 5, 43, 2];
+
+    // act
+    var actual = mergeSort(a);
+
+    // assert
+    assert.deepEqual(actual, [2, 3, 5, 5, 14, 19, 23, 24, 35, 43]);
+  });
+
   it('should handle an empty array', function() {
     // arrange
     var a = [];
