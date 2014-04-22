@@ -14,7 +14,7 @@ function permutations(prefix, string, array) {
     array.push(prefix);
     return;
   }
-  for (var i = 0; i < string.length; i ++) {
+  for (var i = 0; i < string.length; i++) {
     permutations(prefix + string.charAt(i), string.substring(0, i) + string.substring(i + 1, string.length), array);
   }
 }

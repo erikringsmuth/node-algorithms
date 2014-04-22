@@ -1,5 +1,6 @@
 'use strict';
 
+// str2.indexOf(str1) !== -1
 module.exports = function stringContains(str1, str2) {
   var str1Index = 0;
   for (var i = 0; i < str2.length; i++) {
