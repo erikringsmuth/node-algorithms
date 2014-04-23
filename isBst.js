@@ -7,7 +7,7 @@ function Entry(value) {
 }
 
 function isValidBst(node, min, max) {
-  // check if this node is within the min and max
+  // check if this node is outside of the min and max
   if (min !== null && node.value < min || max !== null && node.value > max) {
     return false;
   }
