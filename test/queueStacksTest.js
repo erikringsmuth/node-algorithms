@@ -14,8 +14,8 @@ describe('Queue', function() {
     q.add(3);
     q.add(10);
     var actual = [];
-    actual.push(q.remove())
-    actual.push(q.remove())
+    actual.push(q.remove());
+    actual.push(q.remove());
     actual.push(q.remove());
 
     // assert

@@ -1,13 +1,13 @@
 {
-  "name": "node-boilerplate",
+  "name": "node-algorithms",
   "author": "Erik Ringsmuth <erik.ringsmuth@gmail.com>",
   "license": "ISC",
   "version": "0.0.0",
-  "description": "boilerplate code to get a node.js app started",
+  "description": "some JS data structures, algorithms, and practice problems",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/erikringsmuth/node-boilerplate.git"
+    "url": "https://github.com/erikringsmuth/node-algorithms.git"
   },
   "scripts": {
     "test": "mocha"
