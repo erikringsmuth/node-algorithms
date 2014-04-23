@@ -9,21 +9,21 @@ function findMin(array) {
 }
 
 // iterate through every letter, perform permutations with it added to the prefix plus the permutations of the remaining characters
-function permutations(prefix, string, array) {
+function permutations(prefix, string, results) {
   if (string.length === 0) {
-    array.push(prefix);
+    results.push(prefix);
     return;
   }
   for (var i = 0; i < string.length; i++) {
-    permutations(prefix + string.charAt(i), string.substring(0, i) + string.substring(i + 1, string.length), array);
+    permutations(prefix + string.charAt(i), string.substring(0, i) + string.substring(i + 1, string.length), results);
   }
 }
 
 module.exports = {
   findMin: findMin,
   permutations: function(str) {
-    var array = [];
-    permutations('', str, array);
-    return array;
+    var results = [];
+    permutations('', str, results);
+    return results;
   }
 };
