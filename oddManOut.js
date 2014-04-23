@@ -12,6 +12,7 @@ module.exports = function oddManOut(array) {
   for (var i = 0; i < array.length; i++) {
     var val = array[i];
     if (set.hasOwnProperty(val)) {
+      delete set[val];
       sum -= val;
     }
     else {
