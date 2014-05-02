@@ -43,7 +43,7 @@ describe('HashMap', function() {
       assert.equal(actual, 'you');
     });
 
-    it('should return null if no value is assigned to the key', function() {
+    it('should return undefined if no value is assigned to the key', function() {
       // arrange
       var hashSet = new HashMap();
       hashSet.set('hello');
@@ -52,7 +52,7 @@ describe('HashMap', function() {
       var actual = hashSet.get('hello1');
 
       // assert
-      assert.equal(actual, null);
+      assert.equal(actual, undefined);
     });
   });
 
@@ -70,17 +70,22 @@ describe('HashMap', function() {
 
     it('should expand the underlying data structure when the load factor is greater than 0.75', function() {
       // arrange
-      var hashSet = new HashMap(2);
+      var hashSet = new HashMap(4);
 
       // act
       hashSet.set('hello', 'you');
       hashSet.set('hello2', 'you2');
       hashSet.set('hello3', 'you3');
+      hashSet.set('hello4', 'you4');
+      hashSet.set('hello5', 'you5');
 
       // assert
+      assert.equal(hashSet.data.length, 8);
       assert.equal(hashSet.get('hello'), 'you');
       assert.equal(hashSet.get('hello2'), 'you2');
       assert.equal(hashSet.get('hello3'), 'you3');
+      assert.equal(hashSet.get('hello4'), 'you4');
+      assert.equal(hashSet.get('hello5'), 'you5');
     });
   });
 
