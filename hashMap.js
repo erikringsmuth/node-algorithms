@@ -1,7 +1,5 @@
 'use strict';
 
-var hashFunctions = require('./hashFunctions');
-
 function HashMap(capacity) {
   if (typeof capacity === 'undefined') {
     capacity = 16;
@@ -17,8 +15,14 @@ function Entry(key, value, next) {
   this.next = next;
 }
 
-HashMap.prototype.hash = function hash(string) {
-  return hashFunctions.charCodeHash3(string) % this.data.length;
+HashMap.prototype.hashCode = function hashCode(string) {
+  // djb2 hash
+  var hash = 5381;
+  for (var i = 0; i < string.length; i++) {
+    var c = string.charCodeAt(i);
+    hash = ((hash << 5) + hash) + c; // hash * 33 + c
+  }
+  return hash % this.data.length;
 };
 
 HashMap.prototype.expand = function expand() {
@@ -36,7 +40,7 @@ HashMap.prototype.expand = function expand() {
 };
 
 HashMap.prototype.set = function set(key, value) {
-  var bucket = this.hash(key);
+  var bucket = this.hashCode(key);
   var entry = this.data[bucket];
   while (typeof entry !== 'undefined') {
     if (key === entry.key) {
@@ -56,7 +60,7 @@ HashMap.prototype.set = function set(key, value) {
 };
 
 HashMap.prototype.has = function has(key) {
-  var bucket = this.hash(key);
+  var bucket = this.hashCode(key);
   var entry = this.data[bucket];
   while (typeof entry !== 'undefined') {
     if (key === entry.key) {
@@ -67,7 +71,7 @@ HashMap.prototype.has = function has(key) {
 };
 
 HashMap.prototype.get = function get(key) {
-  var bucket = this.hash(key);
+  var bucket = this.hashCode(key);
   var entry = this.data[bucket];
   while (typeof entry !== 'undefined') {
     if (key === entry.key) {
@@ -79,7 +83,7 @@ HashMap.prototype.get = function get(key) {
 };
 
 HashMap.prototype.delete = function deleteKey(key) {
-  var bucket = this.hash(key);
+  var bucket = this.hashCode(key);
   var entry = this.data[bucket];
   var previous = null;
   while (typeof entry !== 'undefined') {
