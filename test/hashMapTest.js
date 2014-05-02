@@ -101,5 +101,18 @@ describe('HashMap', function() {
       // assert
       assert.equal(hashSet.has('hello'), false);
     });
+
+    it('should decrease the size property', function() {
+      // arrange
+      var hashSet = new HashMap();
+      hashSet.set('hello', 'you');
+      hashSet.set('hello2', 'you2');
+
+      // act
+      hashSet.delete('hello');
+
+      // assert
+      assert.equal(hashSet.size, 1);
+    });
   });
 });

@@ -84,6 +84,7 @@ HashMap.prototype.delete = function deleteKey(key) {
   var previous = null;
   while (typeof entry !== 'undefined') {
     if (key === entry.key) {
+      this.size--;
       if (previous === null) {
         this.data[bucket] = entry.next;
         return;
