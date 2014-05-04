@@ -73,5 +73,22 @@ describe('SkipList', function() {
       // assert
       assert.deepEqual(actual, ['you1', 'you2', 'you3', 'you4', 'you5']);
     });
+
+    it('handle a large list of numbers', function() {
+      // arrange
+      var skipList = new SkipList();
+      var expected = [];
+      for (var i = 0; i < 50; i++) {
+        var val = 'k' + Math.floor(Math.random() * 10000);
+        skipList.set(val, val);
+        expected.push(val);
+      }
+
+      // act
+      var actual = skipList.values();
+
+      // assert
+      assert.deepEqual(actual, expected.sort());
+    });
   });
 });

@@ -167,7 +167,7 @@ SkipList.prototype.print = function print() {
     var row = 'row ' + i + ': ';
     var entry = this.head[i];
     while (entry) {
-      row = row + ' ' + entry.value;
+      row = row + ' ' + entry.key;
       entry = entry.next;
     }
     console.log(row);
