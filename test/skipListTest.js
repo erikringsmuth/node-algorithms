@@ -4,14 +4,14 @@ var assert    = require('assert'),
     SkipList  = require('../skipList');
 
 describe('SkipList', function() {
-  describe('find(key)', function() {
+  describe('get(key)', function() {
     it('should return the value assigned to the key', function() {
       // arrange
       var skipList = new SkipList();
-      skipList.insert('hello', 'you');
+      skipList.set('hello', 'you');
 
       // act
-      var actual = skipList.find('hello');
+      var actual = skipList.get('hello');
 
       // assert
       assert.equal(actual, 'you');
@@ -20,26 +20,26 @@ describe('SkipList', function() {
     it('should return undefined if it isn\'t found', function() {
       // arrange
       var skipList = new SkipList();
-      skipList.insert('hello');
+      skipList.set('hello');
 
       // act
-      var actual = skipList.find('hello1');
+      var actual = skipList.get('hello1');
 
       // assert
       assert.equal(actual, undefined);
     });
   });
 
-  describe('insert(key, value)', function() {
-    it('should insert the value to the key', function() {
+  describe('set(key, value)', function() {
+    it('should set the value to the key', function() {
       // arrange
       var skipList = new SkipList();
 
       // act
-      skipList.insert('hello', 'you');
+      skipList.set('hello', 'you');
 
       // assert
-      assert.equal(skipList.find('hello'), 'you');
+      assert.equal(skipList.get('hello'), 'you');
     });
   });
 
@@ -47,31 +47,13 @@ describe('SkipList', function() {
     it('should delete the entry', function() {
       // arrange
       var skipList = new SkipList();
-      skipList.insert('hello', 'you');
+      skipList.set('hello', 'you');
 
       // act
       skipList.delete('hello');
 
       // assert
-      assert.equal(skipList.has('hello'), false);
-    });
-  });
-
-  describe('first', function() {
-    it('should return the first (lowest) value in the skip list', function() {
-      // arrange
-      var skipList = new SkipList();
-      skipList.insert('hello2', 'you2');
-      skipList.insert('hello3', 'you3');
-      skipList.insert('hello1', 'you1');
-      skipList.insert('hello4', 'you4');
-      skipList.insert('hello5', 'you5');
-
-      // act
-      var actual = skipList.first;
-
-      // assert
-      assert.equal(actual.value, 'you1');
+      assert.equal(skipList.get('hello'), undefined);
     });
   });
 
@@ -79,11 +61,11 @@ describe('SkipList', function() {
     it('should an ordered array of the values in the skip list', function() {
       // arrange
       var skipList = new SkipList();
-      skipList.insert('hello2', 'you2');
-      skipList.insert('hello3', 'you3');
-      skipList.insert('hello1', 'you1');
-      skipList.insert('hello4', 'you4');
-      skipList.insert('hello5', 'you5');
+      skipList.set('hello2', 'you2');
+      skipList.set('hello3', 'you3');
+      skipList.set('hello1', 'you1');
+      skipList.set('hello4', 'you4');
+      skipList.set('hello5', 'you5');
 
       // act
       var actual = skipList.values();
