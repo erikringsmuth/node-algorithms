@@ -1,6 +1,7 @@
 'use strict';
 
 var assert    = require('assert'),
+    HashMap   = require('../hashMap'),
     SkipList  = require('../skipList');
 
 describe('SkipList', function() {
@@ -77,11 +78,15 @@ describe('SkipList', function() {
     it('handle a large list of numbers', function() {
       // arrange
       var skipList = new SkipList();
+      var hashMap = new HashMap();
       var expected = [];
-      for (var i = 0; i < 50; i++) {
+      for (var i = 0; i < 500; i++) {
         var val = 'k' + Math.floor(Math.random() * 10000);
-        skipList.set(val, val);
-        expected.push(val);
+        if (!hashMap.has(val)) {
+          hashMap.set(val, val);
+          skipList.set(val, val);
+          expected.push(val);
+        }
       }
 
       // act

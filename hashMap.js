@@ -66,6 +66,7 @@ HashMap.prototype.has = function has(key) {
     if (key === entry.key) {
       return true;
     }
+    entry = entry.next;
   }
   return false;
 };
