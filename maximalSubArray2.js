@@ -1,32 +1,28 @@
 'use strict';
 
 module.exports = function maximalSubArray(array) {
-  if (array.length <= 1) {
-    return array;
-  }
   var max = array[0];
-  var previous = max > 0 ? max : 0;
-  var start = previous > 0 ? 0 : 1;
+  var previousSum = 0;
+  var start = 0;
   var bestStart = 0;
   var bestEnd = 0;
 
-  for (var i = 1; i < array.length; i++) {
-    // is the current sum greater than the previous max sum?
-    var current = previous + array[i];
-    if (current > max) {
-      max = current;
+  for (var i = 0; i < array.length; i++) {
+    // is the current sum greater than the max sum?
+    var currentSum = previousSum + array[i];
+    if (currentSum > max) {
+      max = currentSum;
       bestEnd = i;
       bestStart = start;
-      previous = current;
     }
 
-    // does the current item keep the sum above zero?
-    if (current <= 0) {
+    // the current sub-array can't help overall if it's sum is less than zero
+    if (currentSum <= 0) {
       start = i + 1;
-      current = 0;
+      currentSum = 0;
     }
 
-    previous = current;
+    previousSum = currentSum;
   }
 
   return array.slice(bestStart, bestEnd + 1);
