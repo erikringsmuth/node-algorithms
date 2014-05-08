@@ -28,12 +28,6 @@ function Entry(key, value) {
   this.value = value;
 }
 
-function swap(array, a, b) {
-  var temp = array[a];
-  array[a] = array[b];
-  array[b] = temp;
-}
-
 Cache.prototype.put = function put(key, value) {
   for (var i = 0; i < this.data.length; i++) {
     var entry = this.data[i];
